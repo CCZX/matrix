@@ -23,8 +23,8 @@ export default class Matrix {
 
   /**
    * 平移矩阵
-   * @param tx 
-   * @param ty 
+   * @param tx
+   * @param ty
    */
   translate(tx: number, ty: number) {
     this.tx = this.tx + tx;
