@@ -1,9 +1,10 @@
 import { FC } from 'react';
+import Canvas from './canvas/index';
 
 const App: FC<{}> = () => {
   return (
     <div className='App'>
-      <h1>matrix</h1>
+      <Canvas />
     </div>
   );
 };
