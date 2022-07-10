@@ -1,28 +1,34 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import Renderer from './renderer';
+import { initStage } from './utils';
+import { PIXEL_RATIO } from '../const';
 import './index.scss';
-import { drawCoordinate } from './utils';
 
 interface CanvasProps {}
 
 const Canvas: FC<CanvasProps> = (props) => {
-  const { innerWidth, innerHeight } = window;
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const { clientWidth, clientHeight } = containerRef.current!;
+
     const canvas = document.querySelector('canvas')!;
+
+    canvas.width = clientWidth;
+    canvas.height = clientHeight;
 
     new Renderer({ el: canvas });
 
     const renderer = Renderer.getInstance();
 
     if (renderer) {
-      drawCoordinate(renderer);
+      initStage(renderer, PIXEL_RATIO);
     }
   }, []);
 
   return (
-    <div className='canvas-area'>
-      <canvas id='stage' width={innerWidth} height={innerHeight} />
+    <div ref={containerRef} className='canvas-area'>
+      <canvas id='stage' />
     </div>
   );
 };

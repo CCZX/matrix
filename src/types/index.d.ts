@@ -4,3 +4,8 @@ declare interface IRectangle {
   width: number;
   heiht: number;
 }
+
+declare interface Point {
+  x: number;
+  y: number;
+}
