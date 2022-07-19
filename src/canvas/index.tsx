@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from 'react';
 import Renderer from './renderer';
-import { initStage } from './utils';
+import { drawShape, initStage } from './utils';
 import { PIXEL_RATIO } from '../const';
 import './index.scss';
 
@@ -23,6 +23,8 @@ const Canvas: FC<CanvasProps> = (props) => {
 
     if (renderer) {
       initStage(renderer, PIXEL_RATIO);
+
+      drawShape(renderer.ctx, PIXEL_RATIO);
     }
   }, []);
 

@@ -105,3 +105,12 @@ function drawGrid(
     ctx.stroke();
   }
 }
+
+export function drawShape(ctx: CanvasRenderingContext2D, pixelRatio: number) {
+  drawRectangle(ctx, pixelRatio);
+}
+
+function drawRectangle(ctx: CanvasRenderingContext2D, pixelRatio: number) {
+  ctx.fillStyle = '#ff0000';
+  ctx.fillRect(0, 0, 10 * pixelRatio, 10 * pixelRatio);
+}
