@@ -21,6 +21,10 @@ export default class Matrix {
     this.ty = ty;
   }
 
+  value() {
+    return [this.a, this.b, this.c, this.d, this.tx, this.ty];
+  }
+
   /**
    * 平移矩阵
    * @param tx
